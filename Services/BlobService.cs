@@ -10,9 +10,11 @@ namespace AzureBlobUploadApi.Services
 
         public BlobService(IConfiguration config)
         {
-            var connectionString = config.GetConnectionString("AzureBlobStorage");
+            var connectionString = config.GetConnectionString("AzureStorageBlobEndpoint");
+            var blobServiceSASToken = config.GetConnectionString("AzureBlobServiceSASToken");
             var containerName = config["AzureBlob:ContainerName"];
-            var blobServiceClient = new BlobServiceClient(connectionString);
+            var blobServiceClient = new BlobServiceClient(new Uri(connectionString + blobServiceSASToken));
+            
             _containerClient = blobServiceClient.GetBlobContainerClient(containerName);
         }
 
