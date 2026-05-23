@@ -1,6 +1,31 @@
 @AzureBlobUploadApi_HostAddress = http://localhost:5164
 
-GET {{AzureBlobUploadApi_HostAddress}}/weatherforecast/
+### 1) Get a fresh container SAS URI
+GET {{AzureBlobUploadApi_HostAddress}}/api/upload/sas
+Accept: application/json
+
+###
+
+### 2) Upload file with multipart/form-data (NOT x-www-form-urlencoded)
+### Replace the value of sasUri with the SasUri returned from request #1.
+POST {{AzureBlobUploadApi_HostAddress}}/api/upload
+Content-Type: multipart/form-data; boundary=UploadBoundary
+
+--UploadBoundary
+Content-Disposition: form-data; name="sasUri"
+
+https://campus123.blob.core.windows.net/development?sv=...&sig=...
+--UploadBoundary
+Content-Disposition: form-data; name="file"; filename="sample.txt"
+Content-Type: text/plain
+
+Hello from multipart form-data upload.
+--UploadBoundary--
+
+###
+
+### 3) List files
+GET {{AzureBlobUploadApi_HostAddress}}/api/upload
 Accept: application/json
 
 ###

@@ -18,11 +18,9 @@
 - Config Files "appsettings.json" following "appsettings.Examle.json"
 
     ```json
-    "ConnectionStrings": {
-        "AzureBlobStorage": "DefaultEndpointsProtocol=https;AccountName=AccountName;AccountKey=AccountKey;EndpointSuffix=core.windows.net"
-    },
     "AzureBlob": {
-        "ContainerName": "ContainerName"
+        "ContainerName": "development",
+        "ServiceUri": "https://campus123.blob.core.windows.net"
     }
     ```
 
