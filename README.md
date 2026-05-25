@@ -42,3 +42,9 @@
     ```
     http://localhost:5164/swagger/index.html
     ```
+
+## Demo
+
+
+https://github.com/user-attachments/assets/f58b9e35-3b52-4df9-bea8-5e3878416c15
+
