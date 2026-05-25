@@ -20,7 +20,7 @@
     ```json
     "AzureBlob": {
         "ContainerName": "development",
-        "ServiceUri": "https://campus123.blob.core.windows.net"
+        "ServiceUri": "https://<your-storage-account>.blob.core.windows.net"
     }
     ```
 
